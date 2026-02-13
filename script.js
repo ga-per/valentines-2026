@@ -1,5 +1,5 @@
 let currentLevel = 0;
-const targetDate = new Date('2026-02-13T01:20:00-03:00');
+const targetDate = new Date('2026-02-13T01:30:00-03:00');
 
 function updateCountdown() {
     const now = new Date();
