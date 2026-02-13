@@ -1,5 +1,5 @@
 let currentLevel = 0;
-const targetDate = new Date('2026-02-13T01:30:00-03:00');
+const targetDate = new Date('2026-02-14T00:00:00-03:00');
 
 function updateCountdown() {
     const now = new Date();
@@ -235,6 +235,8 @@ function spawnBossBlackhead() {
                 bossBlackhead = null;
                 bossBlackheadHasBeenPopped = true;
             }, 300);
+        } else {
+            showMessage('Vaaai fica espremendo até ele sair!');
         }
     };
 
@@ -252,8 +254,6 @@ function verifyLevel4() {
             spawnBossBlackhead();
             document.getElementById('message').textContent = '';
         }, 1000);
-    } else if (bossBlackhead) {
-        showMessage('Vaaai fica espremendo até ele sair!');
     } else {
         showMessage(`Ainda tem ${remaining} cravo${remaining > 1 ? 's' : ''} sobrando!`);
     }
