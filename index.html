@@ -8,13 +8,21 @@
 </head>
 <body>
     <div class="captcha-container">
-        <div class="captcha-header">
+        <div class="captcha-level" id="countdownScreen">
+            <div class="countdown-header">
+                <h2>Presente</h2>
+                <p class="countdown-subtitle">Seu presente estará disponível em:</p>
+            </div>
+            <div class="timer-display" id="timerDisplay">00:00:00</div>
+        </div>
+
+        <div class="captcha-header" id="mainHeader" style="display: none;">
             <h2>Valentine's CAPTCHA</h2>
             <h2>Verifique que você não é um robô</h2>
             <p class="level-indicator" id="levelIndicator" style="display: none;">Nível <span id="currentLevel">1</span> de 4</p>
         </div>
 
-        <div class="captcha-level" id="startScreen">
+        <div class="captcha-level hidden" id="startScreen">
             <p class="start-instructions">Você recebeu um presente de Valentine's Day, mas primeiro verifique que você não é um robô!</p>
             <button class="verify-btn" onclick="startCaptcha()">Iniciar</button>
         </div>

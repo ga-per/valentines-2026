@@ -1,4 +1,28 @@
 let currentLevel = 0;
+const targetDate = new Date('2026-02-13T01:20:00-03:00');
+
+function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate - now;
+    
+    if (diff <= 0) {
+        document.getElementById('countdownScreen').classList.add('hidden');
+        document.getElementById('mainHeader').style.display = 'block';
+        document.getElementById('startScreen').classList.remove('hidden');
+        return;
+    }
+    
+    const totalHours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    
+    document.getElementById('timerDisplay').textContent = 
+        `${String(totalHours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    
+    setTimeout(updateCountdown, 1000);
+}
+
+updateCountdown();
 
 function startCaptcha() {
     document.getElementById('startScreen').classList.add('hidden');
@@ -58,7 +82,6 @@ function verifyLevel1() {
 // ====
 // L2 - Arraste pra perto
 // ====
-let lastSliderValue = 0;
 let correctTarget = 0;
 
 function initLevel2() {
@@ -68,10 +91,9 @@ function initLevel2() {
     const targetImg = document.getElementById('targetImage');
     
     slider.value = 0;
-    movingImg.style.left = '-200px';
+    movingImg.style.left = '-150px';
     movingImg.src = 'images/gabriel-default.webp';
     targetImg.src = 'images/giovana-default.webp';
-    lastSliderValue = 0;
     
     slider.oninput = function() {
         const offset = this.value - 150;
@@ -82,8 +104,6 @@ function initLevel2() {
         } else {
             targetImg.src = 'images/giovana-default.webp';
         }
-        
-        lastSliderValue = this.value;
     };
 }
 

@@ -19,6 +19,51 @@ body {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
     padding: 30px;
     width: 500px;
+    min-height: 300px;
+}
+
+.countdown-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.countdown-header h2 {
+    color: #667eea;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.countdown-subtitle {
+    color: #555;
+    font-size: 16px;
+}
+
+.timer-display {
+    font-size: 64px;
+    font-weight: 900;
+    color: #ff0000;
+    font-family: 'Arial Black', 'Impact', sans-serif;
+    text-align: center;
+    margin: 40px 0;
+    text-shadow: 0 0 30px rgba(255, 0, 0, 0.7);
+    letter-spacing: 8px;
+    white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+    .timer-display {
+        font-size: 48px;
+        letter-spacing: 4px;
+    }
+
+    .captcha-container {
+        width: 90%;
+        padding: 20px;
+    }
+g
+    .target-image, .moving-image {
+        width: 150px;
+    }
 }
 
 .captcha-header {
