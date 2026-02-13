@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Level Captcha</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="captcha-container">
+        <div class="captcha-header">
+            <h2>Valentine's CAPTCHA</h2>
+            <h2>Verifique que você não é um robô</h2>
+            <p class="level-indicator" id="levelIndicator" style="display: none;">Nível <span id="currentLevel">1</span> de 4</p>
+        </div>
+
+        <div class="captcha-level" id="startScreen">
+            <p class="start-instructions">Você recebeu um presente de Valentine's Day, mas primeiro verifique que você não é um robô!</p>
+            <button class="verify-btn" onclick="startCaptcha()">Iniciar</button>
+        </div>
+
+        <div class="captcha-level hidden" id="level1">
+            <p class="instruction">Selecione todas as imagens em que o rapaz está <b>MUITO</b> feliz</p>
+            <div class="image-grid" id="imageGrid"></div>
+            <button class="verify-btn" onclick="verifyLevel1()">Verificar</button>
+        </div>
+
+        <div class="captcha-level hidden" id="level2">
+            <p class="instruction">Leve o Gabriel pra perto do amor dele</p>
+            <div class="drag-container">
+                <div class="alignment-container">
+                    <img src="images/giovana-default.webp" id="targetImage" class="target-image">
+                    <img src="images/gabriel-default.webp" id="movingImage" class="moving-image">
+                </div>
+                <input type="range" id="slider" min="0" max="300" value="0">
+            </div>
+            <button class="verify-btn" onclick="verifyLevel2()">Verificar</button>
+        </div>
+
+        <div class="captcha-level hidden" id="level3">
+            <p class="instruction">Complete o diálogo abaixo:</p>
+            <div class="dialog" id="dialogBox"></div>
+            <input type="text" id="answerInput" placeholder="Qual a única resposta possível?">
+            <button class="verify-btn" onclick="verifyLevel3()">Verificar</button>
+        </div>
+
+        <div class="captcha-level hidden" id="level4">
+            <p class="instruction">Hora de espremer cravos eeeee, não deixe sobrar nenhum!!</p>
+            <div class="back-container" id="backContainer">
+                <img src="images/valentines-back.jpeg" alt="Back" class="back-image">
+                <div id="blackheadsContainer"></div>
+            </div>
+            <button class="verify-btn" onclick="verifyLevel4()">Verificar</button>
+        </div>
+
+        <div class="captcha-level hidden" id="success">
+            <div class="success-icon">✓</div>
+            <h3>Verificação concluída!</h3>
+            <p><b>Você não é um robô, você é o amor da minha vida!</b></p>
+        </div>
+
+        <div class="captcha-message" id="message"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
